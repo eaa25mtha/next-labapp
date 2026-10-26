@@ -22,7 +22,7 @@ export default function PostCard({ post }) {
         dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
       />
       <Link href={`/posts/${post.slug}`} className={styles.link}>
-        Read more
+        Læs mere
       </Link>
     </article>
   );
