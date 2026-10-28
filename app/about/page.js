@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { getPageBySlug } from "@/lib/wordpress";
-import Image from "next/image";
 
 export const metadata = {
   title: "About",
@@ -20,7 +19,7 @@ export default async function AboutPage() {
     <main>
       <h1 dangerouslySetInnerHTML={{ __html: page.title.rendered }} />
       {image && (
-        <Image
+        <img
           className="featured-image"
           src={image.source_url}
           alt={image.alt_text}

@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import { getPostBySlug } from "@/lib/wordpress";
 import { formatDate } from "@/lib/format";
 import styles from "./page.module.css";
-import Image from "next/image";
 
 export default async function PostPage({ params }) {
   const { slug } = await params;
@@ -27,7 +26,7 @@ export default async function PostPage({ params }) {
         </time>
         <h1 dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
         {image && (
-          <Image
+          <img
             className="featured-image"
             src={image.source_url}
             alt={image.alt_text}

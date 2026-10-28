@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { formatDate } from "@/lib/format";
 import styles from "./PostCard.module.css";
-import Image from "next/image";
 
 export default function PostCard({ post }) {
   const image = post._embedded?.["wp:featuredmedia"]?.[0];
@@ -11,7 +10,7 @@ export default function PostCard({ post }) {
   return (
     <article className={styles.card}>
       {image && (
-        <Image
+        <img
           className={styles.image}
           src={image.source_url}
           alt={image.alt_text}
