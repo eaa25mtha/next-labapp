@@ -1,5 +1,5 @@
-import PostCard from "@/components/PostCard";
-import styles from "./page.module.css";
+import PostList from "@/components/PostList";
+//import styles from "./page.module.css";
 
 export const metadata = {
   title: "Posts",
@@ -13,16 +13,8 @@ export default async function PostsPage() {
 
   return (
     <main>
-      <h1>Posts</h1>
-      {posts.length === 0 ? (
-        <p>There are no posts yet.</p>
-      ) : (
-        <section className={styles.grid}>
-          {posts.map((post) => (
-            <PostCard key={post.id} post={post} />
-          ))}
-        </section>
-      )}
+      <h1>Alle posts</h1>
+      <PostList posts={posts} />
     </main>
   );
 }
