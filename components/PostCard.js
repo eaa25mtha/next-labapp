@@ -1,12 +1,29 @@
 import Link from "next/link";
 import { formatDate } from "@/lib/format";
 import styles from "./PostCard.module.css";
+import Image from "next/image";
 
 export default function PostCard({ post }) {
+  const image = post._embedded?.["wp:featuredmedia"]?.[0];
+  const categories = post._embedded?.["wp:term"]?.[0] ?? [];
   const date = formatDate(post.date);
 
   return (
     <article className={styles.card}>
+      {image && (
+        <Image
+          className={styles.image}
+          src={image.source_url}
+          alt={image.alt_text}
+        />
+      )}
+      {categories.length > 0 && (
+        <ul className={styles.categories}>
+          {categories.map((category) => (
+            <li key={category.id}>{category.name}</li>
+          ))}
+        </ul>
+      )}
       <time className={styles.date} dateTime={post.date}>
         {date}
       </time>
