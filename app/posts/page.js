@@ -1,6 +1,5 @@
 import PostList from "@/components/PostList";
 import { getPosts } from "@/lib/wordpress";
-//import styles from "./page.module.css";
 
 export const metadata = {
   title: "Posts",
@@ -11,7 +10,7 @@ export default async function PostsPage() {
 
   return (
     <main>
-      <h1>Alle posts</h1>
+      <h1>Posts</h1>
       <PostList posts={posts} />
     </main>
   );

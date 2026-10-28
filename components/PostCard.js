@@ -1,6 +1,6 @@
 import Link from "next/link";
+import { formatDate } from "@/lib/format";
 import styles from "./PostCard.module.css";
-import { formatDate } from "../lib/format";
 
 export default function PostCard({ post }) {
   const date = formatDate(post.date);
@@ -19,7 +19,7 @@ export default function PostCard({ post }) {
         dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
       />
       <Link href={`/posts/${post.slug}`} className={styles.link}>
-        Læs mere
+        Read more
       </Link>
     </article>
   );

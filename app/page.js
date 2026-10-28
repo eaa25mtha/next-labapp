@@ -1,7 +1,7 @@
-import styles from "./page.module.css";
+import Link from "next/link";
 import PostList from "@/components/PostList";
 import { getLatestPosts } from "@/lib/wordpress";
-import Link from "next/link";
+import styles from "./page.module.css";
 
 export default async function Home() {
   const posts = await getLatestPosts();
@@ -10,6 +10,10 @@ export default async function Home() {
     <main>
       <section className={styles.hero}>
         <h1>Posts fra hverdagen</h1>
+        <p>
+          Her er en række posts jeg har skrevet om min hverdag. Det er
+          øjebliksbilleder.
+        </p>
       </section>
 
       <section>

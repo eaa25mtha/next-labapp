@@ -1,14 +1,12 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPostBySlug } from "@/lib/wordpress";
 import { formatDate } from "@/lib/format";
-import Link from "next/link";
 import styles from "./page.module.css";
 
 export default async function PostPage({ params }) {
   const { slug } = await params;
-
-  const posts = await getPostBySlug();
-  const post = posts[0];
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     notFound();
